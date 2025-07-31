@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TEJAS SPECIAL. - Premium STYLES </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .aurora-bg {
+            background: linear-gradient(45deg, #f5f3f0, #f7d6e0, #8bd4ebfa, #f8aeae);
+            background-size: 400% 400%;
+            animation: aurora 8s ease-in-out infinite;
+        }
+        
+        @keyframes aurora {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .sparkle {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sparkle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: sparkle 3s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .morph {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        
+        @keyframes morph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+        
+        .wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 20px rgba(247, 214, 224, 0.5); }
+            to { box-shadow: 0 0 40px rgba(247, 214, 224, 0.8), 0 0 60px rgba(230, 214, 245, 0.4); }
+        }
+        
+        .slide-up {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+        
+        .slide-up.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #e21246, #7b06e7, #1c09f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .blob {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: blob 7s ease-in-out infinite;
+        }
+        
+        @keyframes blob {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        }
+        
+        .page {
+            display: none;
+            min-height: 100vh;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeInPage 0.6s ease-in-out;
+        }
+        
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(219, 143, 162, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            background: #db8fa2;
+            transform: scale(1.5);
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(247, 214, 224, 0.6);
+            font-size: 20px;
+            animation: floatUp 4s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f7d6e0;
+            border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #db8fa2;
+            border-radius: 10px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .magnetic-button {
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+        
+        .magnetic-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(219, 143, 162, 0.4);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #db8fa2;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #db8fa2; }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .cart-bounce {
+            animation: cartBounce 0.6s ease-in-out;
+        }
+        
+        @keyframes cartBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .error-input {
+            border: 2px solid #ef4444 !important;
+            background: rgba(239, 68, 68, 0.1) !important;
+        }
+        
+        .success-input {
+            border: 2px solid #10b981 !important;
+            background: rgba(16, 185, 129, 0.1) !important;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quantity-btn:hover {
+            background: #e5e7eb;
+            transform: scale(1.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #db8fa2, #e6d6f5);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="aurora-bg min-h-screen custom-scrollbar">
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-effect fixed top-0 w-full z-50 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold text-xl morph">T&T</div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gradient">Tresses & Trinkets</h1>
+                    <p class="text-xs text-gray-600">Premium Hair Accessories</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <button class="nav-link font-medium text-gray-700 hover:text-pink-500 transition-colors relative" onclick="showPage('home', this)">
+                    Home
+                    <div class="nav-dot absolute -bottom-2 left-1/2 transform -translate-x-1/2 active"></div>
+                </button>
+                <button class="nav-link font-medium text-gray-700 hover:text-pink-500 transition-colors relative" onclick="showPage('shop', this)">
+                    Shop
+                    <div class="nav-dot absolute -bottom-2 left-1/2 transform -translate-x-1/2"></div>
+                </button>
+                <button class="nav-link font-medium text-gray-700 hover:text-pink-500 transition-colors relative" onclick="showPage('about', this)">
+                    About
+                    <div class="nav-dot absolute -bottom-2 left-1/2 transform -translate-x-1/2"></div>
+                </button>
+                <button class="nav-link font-medium text-gray-700 hover:text-pink-500 transition-colors relative" onclick="showPage('contact', this)">
+                    Contact
+                    <div class="nav-dot absolute -bottom-2 left-1/2 transform -translate-x-1/2"></div>
+                </button>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="relative p-2 hover:bg-white/20 rounded-full transition-colors" onclick="toggleCart()">
+                    <span class="text-2xl">🛍️</span>
+                    <span class="absolute -top-1 -right-1 bg-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+                </button>
+                <button class="p-2 hover:bg-white/20 rounded-full transition-colors wiggle" onclick="toggleWishlistSidebar()">
+                    <span class="text-2xl">💖</span>
+                    <span class="absolute -top-1 -right-1 bg-purple-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="wishlistCount">0</span>
+                </button>
+                <button class="p-2 hover:bg-white/20 rounded-full transition-colors" onclick="openAuthModal()" id="authButton">
+                    <span class="text-2xl">👤 </span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="mb-8">
+                    <h2 class="text-6xl md:text-8xl font-cursive text-purple-900 mb-6 typewriter">STYLE YOUR HAIRS</h2>
+                    <h3 class="text-4xl md:text-4xl font-bold text-blue-700"> create your own style  </h3>
+                </div>
+                
+                <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto slide-up">
+                    Discover our  collection of premium scrunchies and accessories designed for the woman
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                    <button class="magnetic-button bg-gradient-to-r from-pink-400 to-purple-400 text-white px-10 py-4 rounded-full text-lg font-semibold sparkle" onclick="showPage('shop')">
+                        Shop Collection ✨
+                    </button>
+                    <button class="magnetic-button border-2 border-pink-400 text-pink-500 px-10 py-4 rounded-full text-lg font-semibold hover:bg-pink-50">
+                        Watch Our Story 🎥
+                    </button>
+                </div>
+                
+                <!-- User Welcome Message -->
+                <div id="welcomeMessage" class="hidden glass-effect rounded-2xl p-4 mb-8 max-w-md mx-auto">
+                    <p class="text-gray-700">Welcome back, <span id="userName" class="font-bold text-pink-500"></span>! 💕</p>
+                </div>
+                
+                <!-- Floating Product Previews -->
+                <div class="relative">
+                    <div class="absolute top-0 left-1/4 w-32 h-32 bg-pink-200 blob flex items-center justify-center text-6xl animate-bounce" style="animation-delay: 0s;">🌸</div>
+                    <div class="absolute top-20 right-1/4 w-28 h-28 bg-purple-200 blob flex items-center justify-center text-5xl animate-bounce" style="animation-delay: 1s;">💜</div>
+                    <div class="absolute -top-10 left-1/2 w-24 h-24 bg-yellow-200 blob flex items-center justify-center text-4xl animate-bounce" style="animation-delay: 2s;">✨</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Collections -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <h3 class="text-5xl font-bold text-center text-gradient mb-16 slide-up">Trending Collections</h3>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-hover glass-effect rounded-3xl p-8 text-center pulse-glow">
+                        <div class="w-24 h-24 bg-gradient-to-br from-pink-300 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl morph">🌺</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Floral Dreams</h4>
+                        <p class="text-gray-600 mb-6">Botanical-inspired designs that bring nature's beauty to your hair</p>
+                        <button class="magnetic-button bg-pink-400 text-white px-6 py-3 rounded-full font-semibold" onclick="filterAndShowShop('floral')">Explore Collection</button>
+                    </div>
+                    
+                    <div class="card-hover glass-effect rounded-3xl p-8 text-center pulse-glow" style="animation-delay: 0.2s;">
+                        <div class="w-24 h-24 bg-gradient-to-br from-purple-300 to-purple-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl morph">🎉</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Party Glam</h4>
+                        <p class="text-gray-600 mb-6">Sparkle and shine with our celebration-ready accessories</p>
+                        <button class="magnetic-button bg-purple-400 text-white px-6 py-3 rounded-full font-semibold" onclick="filterAndShowShop('party')">Explore Collection</button>
+                    </div>
+                    
+                    <div class="card-hover glass-effect rounded-3xl p-8 text-center pulse-glow" style="animation-delay: 0.4s;">
+                        <div class="w-24 h-24 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl morph">👑</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Luxury Velvet</h4>
+                        <p class="text-gray-600 mb-6">Premium velvet textures for the ultimate in comfort and style</p>
+                        <button class="magnetic-button bg-yellow-400 text-white px-6 py-3 rounded-full font-semibold" onclick="filterAndShowShop('velvet')">Explore Collection</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Love -->
+        <section class="py-20 px-6 bg-white/30">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-5xl font-bold text-center text-gradient mb-16">Customer Love</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviewsContainer">
+                    <!-- Reviews will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Shop Page -->
+    <div id="shop" class="page">
+        <div class="pt-32 pb-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-bold text-gradient mb-6">Shop Our Collection</h2>
+                    <p class="text-xl text-gray-600">Discover premium hair accessories crafted with love</p>
+                </div>
+                
+                <!-- Filter Bar -->
+                <div class="glass-effect rounded-3xl p-6 mb-12">
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <button class="filter-btn bg-pink-400 text-white px-6 py-3 rounded-full font-semibold magnetic-button" onclick="filterProducts('all')">All Products</button>
+                        <button class="filter-btn bg-white/50 text-gray-700 px-6 py-3 rounded-full font-semibold magnetic-button" onclick="filterProducts('scrunchies')">Scrunchies</button>
+                        <button class="filter-btn bg-white/50 text-gray-700 px-6 py-3 rounded-full font-semibold magnetic-button" onclick="filterProducts('sets')">Gift Sets</button>
+                        <button class="filter-btn bg-white/50 text-gray-700 px-6 py-3 rounded-full font-semibold magnetic-button" onclick="filterProducts('accessories')">Accessories</button>
+                    </div>
+                    
+                    <!-- Search Bar -->
+                    <div class="mt-6 max-w-md mx-auto">
+                        <input type="text" id="searchInput" placeholder="Search products..." class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400" oninput="searchProducts()">
+                    </div>
+                </div>
+                
+                <!-- Loading Indicator -->
+                <div id="loadingProducts" class="text-center py-12 hidden">
+                    <div class="loading mx-auto mb-4"></div>
+                    <p class="text-gray-600">Loading amazing products...</p>
+                </div>
+                
+                <!-- Product Grid -->
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="pt-32 pb-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-6xl font-bold text-gradient mb-8">Our Story</h2>
+                    <p class="text-2xl text-gray-600 max-w-4xl mx-auto">Born from a passion for beautiful, sustainable hair accessories that celebrate every woman's unique style</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                    <div class="slide-up">
+                        <h3 class="text-4xl font-bold text-gray-800 mb-6">Meet Our Founder</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Hi, I'm Emma! 👋 As a busy entrepreneur and mom, I was frustrated by hair accessories that either looked cheap or fell apart after a few uses. I dreamed of creating something different - beautiful, high-quality pieces that could transition from yoga class to boardroom to date night.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-6">
+                            In 2020, I started Tresses & Trinkets in my kitchen, hand-selecting the finest materials and working with skilled artisans who shared my vision for ethical, sustainable production.
+                        </p>
+                        <p class="text-lg text-gray-600">
+                            Today, we're proud to be a certified women-owned business that's helped over 50,000 women feel confident and beautiful in their own skin. ✨
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="w-80 h-80 bg-gradient-to-br from-pink-300 to-purple-400 blob mx-auto flex items-center justify-center text-9xl">👩‍💼</div>
+                        <div class="absolute -top-4 -right-4 w-16 h-16 bg-yellow-300 rounded-full flex items-center justify-center text-2xl wiggle">✨</div>
+                        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-pink-300 rounded-full flex items-center justify-center text-xl wiggle" style="animation-delay: 1s;">💖</div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-20">
+                    <div class="glass-effect rounded-3xl p-8 text-center card-hover">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-300 to-green-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl morph">🌱</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Sustainably Made</h4>
+                        <p class="text-gray-600">We source only eco-friendly materials and work with suppliers who share our commitment to the planet.</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-3xl p-8 text-center card-hover">
+                        <div class="w-20 h-20 bg-gradient-to-br from-pink-300 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl morph">👩</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Women-Owned</h4>
+                        <p class="text-gray-600">Founded, owned, and operated by women who understand what modern women want in their accessories.</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-3xl p-8 text-center card-hover">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-300 to-purple-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl morph">💝</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Ethically Crafted</h4>
+                        <p class="text-gray-600">Every piece is made with fair labor practices and a commitment to supporting artisan communities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="pt-32 pb-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-6xl font-bold text-gradient mb-8">Let's Connect</h2>
+                    <p class="text-2xl text-gray-600">We'd love to hear from you! Drop us a line and let's chat 💕</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="glass-effect rounded-3xl p-8">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-8">Send us a message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">First Name *</label>
+                                    <input type="text" name="firstName" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Emma">
+                                    <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Last Name *</label>
+                                    <input type="text" name="lastName" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Johnson">
+                                    <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Email *</label>
+                                <input type="email" name="email" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="emma@example.com">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">What's this about?</label>
+                                <select name="subject" class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                                    <option>General Question</option>
+                                    <option>Order Support</option>
+                                    <option>Product Feedback</option>
+                                    <option>Wholesale Inquiry</option>
+                                    <option>Just Saying Hi! 👋</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Your Message *</label>
+                                <textarea name="message" rows="5" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none" placeholder="Tell us what's on your mind..."></textarea>
+                                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <button type="submit" class="w-full magnetic-button bg-gradient-to-r from-pink-400 to-purple-400 text-white py-4 rounded-2xl font-semibold text-lg sparkle" id="submitBtn">
+                                Send Message 💌
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div class="glass-effect rounded-3xl p-8">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white text-xl mr-4">📧</div>
+                                    <div>
+                                        <p class="font-semibold">Email</p>
+                                        <p class="text-gray-600">hello@tressesandtrinkets.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-xl mr-4">📱</div>
+                                    <div>
+                                        <p class="font-semibold">Phone</p>
+                                        <p class="text-gray-600">+1 (555) 123-HAIR</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center text-white text-xl mr-4">📍</div>
+                                    <div>
+                                        <p class="font-semibold">Location</p>
+                                        <p class="text-gray-600">Los Angeles, California</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-teal-400 rounded-full flex items-center justify-center text-white text-xl mr-4">⏰</div>
+                                    <div>
+                                        <p class="font-semibold">Hours</p>
+                                        <p class="text-gray-600">Mon-Fri 9AM-6PM PST</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-effect rounded-3xl p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Follow Our Journey</h3>
+                            <div class="grid grid-cols-3 gap-3 mb-6">
+                                <div class="aspect-square bg-gradient-to-br from-pink-300 to-pink-500 rounded-2xl flex items-center justify-center text-3xl cursor-pointer hover:scale-105 transition-transform">📸</div>
+                                <div class="aspect-square bg-gradient-to-br from-purple-300 to-purple-500 rounded-2xl flex items-center justify-center text-3xl cursor-pointer hover:scale-105 transition-transform">💄</div>
+                                <div class="aspect-square bg-gradient-to-br from-yellow-300 to-orange-400 rounded-2xl flex items-center justify-center text-3xl cursor-pointer hover:scale-105 transition-transform">✨</div>
+                                <div class="aspect-square bg-gradient-to-br from-green-300 to-teal-400 rounded-2xl flex items-center justify-center text-3xl cursor-pointer hover:scale-105 transition-transform">🌸</div>
+                                <div class="aspect-square bg-gradient-to-br from-blue-300 to-indigo-400 rounded-2xl flex items-center justify-center text-3xl cursor-pointer hover:scale-105 transition-transform">💜</div>
+                                <div class="aspect-square bg-gradient-to-br from-red-300 to-pink-400 rounded-2xl flex items-center justify-center text-3xl cursor-pointer hover:scale-105 transition-transform">🎀</div>
+                            </div>
+                            <p class="text-center font-bold text-pink-500 text-lg">@tressesandtrinkets</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="fixed top-0 right-0 h-full w-96 glass-effect transform translate-x-full transition-transform duration-300 z-50 custom-scrollbar overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Shopping Cart</h3>
+                <button onclick="toggleCart()" class="text-2xl hover:text-pink-500">×</button>
+            </div>
+            
+            <div id="cartItems" class="space-y-4 mb-6">
+                <!-- Cart items will be added here -->
+            </div>
+            
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-lg">Subtotal:</span>
+                    <span class="text-lg font-bold" id="cartSubtotal">$0</span>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-lg">Shipping:</span>
+                    <span class="text-lg" id="cartShipping">Free</span>
+                </div>
+                <div class="flex justify-between items-center mb-4 text-xl font-bold">
+                    <span>Total:</span>
+                    <span class="text-pink-500" id="cartTotal">$0</span>
+                </div>
+                <button class="w-full magnetic-button bg-gradient-to-r from-pink-400 to-purple-400 text-white py-4 rounded-2xl font-semibold text-lg sparkle" onclick="proceedToCheckout()">
+                    Checkout 🛍️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar -->
+    <div id="wishlistSidebar" class="fixed top-0 right-0 h-full w-96 glass-effect transform translate-x-full transition-transform duration-300 z-50 custom-scrollbar overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Wishlist</h3>
+                <button onclick="toggleWishlistSidebar()" class="text-2xl hover:text-pink-500">×</button>
+            </div>
+            
+            <div id="wishlistItems" class="space-y-4">
+                <!-- Wishlist items will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Authentication Modal -->
+    <div id="authModal" class="modal">
+        <div class="glass-effect rounded-3xl p-8 max-w-md w-full mx-4">
+            <div class="text-center mb-6">
+                <h3 class="text-3xl font-bold text-gray-800 mb-2" id="authTitle">Welcome Back!</h3>
+                <p class="text-gray-600" id="authSubtitle">Sign in to your account</p>
+            </div>
+            
+            <form id="authForm" class="space-y-4">
+                <div id="nameFields" class="hidden space-y-4">
+                    <div>
+                        <input type="text" name="firstName" placeholder="First Name" class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+                    <div>
+                        <input type="text" name="lastName" placeholder="Last Name" class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+                </div>
+                
+                <div>
+                    <input type="email" name="email" placeholder="Email" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                </div>
+                
+                <div>
+                    <input type="password" name="password" placeholder="Password" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                </div>
+                
+                <button type="submit" class="w-full magnetic-button bg-gradient-to-r from-pink-400 to-purple-400 text-white py-3 rounded-2xl font-semibold" id="authSubmitBtn">
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="text-center mt-4">
+                <button class="text-pink-500 hover:underline" id="authToggle">Don't have an account? Sign up</button>
+            </div>
+            
+            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-2xl hover:text-pink-500">×</button>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+        <div class="glass-effect rounded-3xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div id="productImage" class="h-64 bg-gradient-to-br from-pink-200 to-pink-400 rounded-3xl flex items-center justify-center text-8xl mb-4">
+                        🌸
+                    </div>
+                    <div class="grid grid-cols-3 gap-2" id="productThumbnails">
+                        <!-- Thumbnails will be added here -->
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4" id="productTitle">Product Name</h3>
+                    <p class="text-gray-600 mb-4" id="productDescription">Product description</p>
+                    <div class="text-3xl font-bold text-pink-500 mb-6" id="productPrice">$24</div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Color</label>
+                        <div class="flex gap-2" id="colorOptions">
+                            <!-- Color options will be added here -->
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Size</label>
+                        <select id="sizeSelect" class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                            <option>Regular</option>
+                            <option>Large</option>
+                        </select>
+                    </div>
+                    
+                    <div class="quantity-controls mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Quantity</label>
+                        <div class="flex items-center gap-3">
+                            <button type="button" class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                            <span id="quantityDisplay" class="text-xl font-bold">1</span>
+                            <button type="button" class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <button class="w-full magnetic-button bg-gradient-to-r from-pink-400 to-purple-400 text-white py-3 rounded-2xl font-semibold" onclick="addToCartFromModal()">
+                            Add to Cart 🛍️
+                        </button>
+                        <button class="w-full magnetic-button border-2 border-pink-400 text-pink-500 py-3 rounded-2xl font-semibold hover:bg-pink-50" onclick="addToWishlistFromModal()">
+                            Add to Wishlist 💖
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-2xl hover:text-pink-500">×</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="glass-effect rounded-3xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Checkout</h3>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Shipping Information</h4>
+                    <form id="checkoutForm" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" name="firstName" placeholder="First Name" required class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                            <input type="text" name="lastName" placeholder="Last Name" required class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                        </div>
+                        <input type="email" name="email" placeholder="Email" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                        <input type="text" name="address" placeholder="Address" required class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <input type="text" name="city" placeholder="City" required class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                            <input type="text" name="state" placeholder="State" required class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                            <input type="text" name="zip" placeholder="ZIP" required class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                        </div>
+                        
+                        <h4 class="text-xl font-bold text-gray-800 mb-4 mt-8">Payment Information</h4>
+                        <div class="glass-effect rounded-2xl p-4 mb-4">
+                            <p class="text-center text-gray-600">💳 Demo Mode - No real payment processing</p>
+                        </div>
+                        <input type="text" placeholder="Card Number (Demo: 4242 4242 4242 4242)" class="w-full glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="MM/YY" class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                            <input type="text" placeholder="CVC" class="glass-effect border-0 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                        </div>
+                    </form>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Order Summary</h4>
+                    <div class="glass-effect rounded-2xl p-4 mb-6">
+                        <div id="checkoutItems" class="space-y-3 mb-4">
+                            <!-- Checkout items will be added here -->
+                        </div>
+                        <div class="border-t pt-4 space-y-2">
+                            <div class="flex justify-between">
+                                <span>Subtotal:</span>
+                                <span id="checkoutSubtotal">$0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Shipping:</span>
+                                <span>Free</span>
+                            </div>
+                            <div class="flex justify-between text-xl font-bold">
+                                <span>Total:</span>
+                                <span class="text-pink-500" id="checkoutTotal">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full magnetic-button bg-gradient-to-r from-pink-400 to-purple-400 text-white py-4 rounded-2xl font-semibold text-lg sparkle" onclick="processOrder()">
+                        Place Order 🎉
+                    </button>
+                </div>
+            </div>
+            
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-2xl hover:text-pink-500">×</button>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <button class="w-16 h-16 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full shadow-lg flex items-center justify-center text-2xl text-white hover:scale-110 transition-transform pulse-glow" onclick="openChat()">
+            💬
+        </button>
+    </div>
+
+    <script>
+        // Global variables
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+        let isSignUp = false;
+        let currentQuantity = 1;
+        let currentProduct = null;
+        
+        // Mock product data
+        const products = [
+            {
+                id: 1,
+                name: "Velvet Rose Scrunchie",
+                description: "Luxurious velvet in dusty rose - perfect for everyday elegance",
+                price: 24,
+                category: "scrunchies",
+                collection: "velvet",
+                emoji: "🌸",
+                colors: ["Rose", "Dusty Pink", "Mauve"],
+                sizes: ["Regular", "Large"],
+                images: ["🌸", "🌺", "🌷"]
+            },
+            {
+                id: 2,
+                name: "Lavender Dreams Set",
+                description: "Set of 3 purple-toned scrunchies for the ultimate hair game",
+                price: 58,
+                category: "sets",
+                collection: "floral",
+                emoji: "💜",
+                colors: ["Lavender", "Purple", "Lilac"],
+                sizes: ["Regular"],
+                images: ["💜", "💙", "🟣"]
+            },
+            {
+                id: 3,
+                name: "Golden Sparkle Scrunchie",
+                description: "Shimmering gold for special occasions and party nights",
+                price: 28,
+                category: "scrunchies",
+                collection: "party",
+                emoji: "✨",
+                colors: ["Gold", "Champagne", "Bronze"],
+                sizes: ["Regular", "Large"],
+                images: ["✨", "⭐", "🌟"]
+            },
+            {
+                id: 4,
+                name: "Silk Hair Ribbon",
+                description: "Premium silk ribbon in ocean blue - timeless elegance",
+                price: 32,
+                category: "accessories",
+                collection: "luxury",
+                emoji: "🎀",
+                colors: ["Ocean Blue", "Navy", "Teal"],
+                sizes: ["One Size"],
+                images: ["🎀", "💙", "🌊"]
+            },
+            {
+                id: 5,
+                name: "Floral Paradise Set",
+                description: "Botanical-inspired collection with 4 nature-themed scrunchies",
+                price: 72,
+                category: "sets",
+                collection: "floral",
+                emoji: "🌺",
+                colors: ["Mixed Florals"],
+                sizes: ["Regular"],
+                images: ["🌺", "🌸", "🌻"]
+            },
+            {
+                id: 6,
+                name: "Party Glam Scrunchie",
+                description: "Sequined scrunchie that catches the light beautifully",
+                price: 35,
+                category: "scrunchies",
+                collection: "party",
+                emoji: "🎉",
+                colors: ["Silver", "Gold", "Rose Gold"],
+                sizes: ["Regular", "Large"],
+                images: ["🎉", "✨", "🌟"]
+            }
+        ];
+        
+        // Mock reviews data
+        const reviews = [
+            {
+                name: "Sarah Chen",
+                initial: "S",
+                rating: 5,
+                text: "Absolutely obsessed! These scrunchies are so gentle on my hair and the colors are gorgeous. Perfect quality! 💕"
+            },
+            {
+                name: "Maya Patel",
+                initial: "M",
+                rating: 5,
+                text: "The velvet collection is divine! I get compliments every time I wear them. Will definitely order more! ✨"
+            },
+            {
+                name: "Luna Rodriguez",
+                initial: "L",
+                rating: 5,
+                text: "Fast shipping, beautiful packaging, and the scrunchies are even prettier in person! Love supporting this brand! 🌟"
+            },
+            {
+                name: "Emma Thompson",
+                initial: "E",
+                rating: 5,
+                text: "These scrunchies don't leave dents in my hair! Finally found the perfect hair accessories. Highly recommend! 🙌"
+            },
+            {
+                name: "Zoe Kim",
+                initial: "Z",
+                rating: 5,
+                text: "The silk ribbon is absolutely beautiful! Such high quality and the color is exactly as shown. Love it! 💖"
+            },
+            {
+                name: "Aria Johnson",
+                initial: "A",
+                rating: 5,
+                text: "Best scrunchies ever! They hold my thick hair perfectly and look so elegant. Customer service is amazing too! ⭐"
+            }
+        ];
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts();
+            loadReviews();
+            updateCartDisplay();
+            updateWishlistDisplay();
+            updateAuthButton();
+            showWelcomeMessage();
+            
+            // Initialize floating hearts
+            setInterval(createFloatingHeart, 3000);
+            
+            // Initialize scroll animations
+            handleScrollAnimations();
+            window.addEventListener('scroll', handleScrollAnimations);
+            
+            // Initialize auth form toggle
+            document.getElementById('authToggle').addEventListener('click', toggleAuthMode);
+            
+            // Initialize contact form
+            document.getElementById('contactForm').addEventListener('submit', handleContactForm);
+            
+            // Initialize search
+            document.getElementById('searchInput').addEventListener('input', searchProducts);
+        });
+        
+        // Floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = ['💖', '💕', '💗', '🌸', '✨'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.getElementById('floatingHearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+        
+        // Load products
+        function loadProducts() {
+            const productGrid = document.getElementById('productGrid');
+            const loadingIndicator = document.getElementById('loadingProducts');
+            
+            // Show loading
+            loadingIndicator.classList.remove('hidden');
+            productGrid.innerHTML = '';
+            
+            // Simulate API delay
+            setTimeout(() => {
+                loadingIndicator.classList.add('hidden');
+                
+                products.forEach(product => {
+                    const productCard = createProductCard(product);
+                    productGrid.appendChild(productCard);
+                });
+            }, 1000);
+        }
+        
+        // Create product card
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card glass-effect rounded-3xl overflow-hidden card-hover';
+            card.dataset.category = product.category;
+            card.dataset.collection = product.collection;
+            card.dataset.name = product.name.toLowerCase();
+            
+            const isInWishlist = wishlist.some(item => item.id === product.id);
+            
+            card.innerHTML = `
+                <div class="h-64 bg-gradient-to-br from-pink-200 to-pink-400 flex items-center justify-center text-8xl relative overflow-hidden cursor-pointer" onclick="openProductModal(${product.id})">
+                    <span class="sparkle">${product.emoji}</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">${product.name}</h4>
+                    <p class="text-gray-600 mb-4">${product.description}</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold text-pink-500">$${product.price}</span>
+                        <button class="text-2xl hover:scale-125 transition-transform" onclick="toggleWishlist(${product.id}, this)">
+                            ${isInWishlist ? '❤️' : '🤍'}
+                        </button>
+                    </div>
+                    <button class="w-full magnetic-button bg-gradient-to-r from-pink-400 to-purple-400 text-white py-3 rounded-full font-semibold" onclick="quickAddToCart(${product.id})">
+                        Add to Cart 🛍️
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Load reviews
+        function loadReviews() {
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            
+            reviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'glass-effect rounded-3xl p-6 card-hover';
+                
+                const stars = '⭐'.repeat(review.rating);
+                
+                reviewCard.innerHTML = `
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold">${review.initial}</div>
+                        <div class="ml-4">
+                            <h5 class="font-bold">${review.name}</h5>
+                            <div class="text-yellow-400 text-lg">${stars}</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">${review.text}</p>
+                `;
+                
+                reviewsContainer.appendChild(reviewCard);
+            });
+        }
+        
+        // Page navigation
+        function showPage(pageId, navElement) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-dot').forEach(dot => {
+                dot.classList.remove('active');
+            });
+            if (navElement) {
+                navElement.querySelector('.nav-dot').classList.add('active');
+            }
+            
+            window.scrollTo(0, 0);
+        }
+        
+        // Filter and show shop
+        function filterAndShowShop(collection) {
+            showPage('shop');
+            setTimeout(() => {
+                filterProducts(collection);
+            }, 100);
+        }
+        
+        // Product filtering
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-pink-400', 'text-white');
+                btn.classList.add('bg-white/50', 'text-gray-700');
+            });
+            
+            event.target.classList.remove('bg-white/50', 'text-gray-700');
+            event.target.classList.add('bg-pink-400', 'text-white');
+            
+            products.forEach(product => {
+                const matchesCategory = category === 'all' || product.dataset.category === category;
+                const matchesCollection = category === 'all' || product.dataset.collection === category;
+                
+                if (matchesCategory || matchesCollection) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+        
+        // Search products
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                const productName = product.dataset.name;
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+        
+        // Cart functionality
+        function quickAddToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            addToCart(product, 1, product.colors[0], product.sizes[0]);
+        }
+        
+        function addToCart(product, quantity = 1, color = null, size = null) {
+            const cartItem = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: quantity,
+                color: color || product.colors[0],
+                size: size || product.sizes[0],
+                emoji: product.emoji
+            };
+            
+            // Check if item already exists in cart
+            const existingItemIndex = cart.findIndex(item => 
+                item.id === product.id && 
+                item.color === cartItem.color && 
+                item.size === cartItem.size
+            );
+            
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                cart.push(cartItem);
+            }
+            
+            saveCart();
+            updateCartDisplay();
+            
+            // Add animation to cart icon
+            const cartCount = document.getElementById('cartCount');
+            cartCount.classList.add('cart-bounce');
+            setTimeout(() => {
+                cartCount.classList.remove('cart-bounce');
+            }, 600);
+            
+            // Show success message
+            showNotification(`${product.name} added to cart! ✨`);
+        }
+        
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartSubtotal = document.getElementById('cartSubtotal');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            let subtotal = 0;
+            cartItems.innerHTML = '';
+            
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'glass-effect rounded-2xl p-4';
+                cartItem.innerHTML = `
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">${item.emoji}</span>
+                            <div>
+                                <h4 class="font-semibold text-sm">${item.name}</h4>
+                                <p class="text-xs text-gray-600">${item.color} • ${item.size}</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:scale-110 transition-transform">🗑️</button>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateCartQuantity(${index}, -1)">-</button>
+                            <span class="mx-2 font-bold">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateCartQuantity(${index}, 1)">+</button>
+                        </div>
+                        <p class="text-pink-500 font-bold">$${(item.price * item.quantity).toFixed(2)}</p>
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `$${subtotal.toFixed(2)}`;
+        }
+        
+        function updateCartQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCart();
+            updateCartDisplay();
+        }
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+            updateCartDisplay();
+        }
+        
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            sidebar.classList.toggle('translate-x-full');
+        }
+        
+        // Wishlist functionality
+        function toggleWishlist(productId, buttonElement) {
+            const product = products.find(p => p.id === productId);
+            const existingIndex = wishlist.findIndex(item => item.id === productId);
+            
+            if (existingIndex > -1) {
+                wishlist.splice(existingIndex, 1);
+                buttonElement.textContent = '🤍';
+                showNotification(`${product.name} removed from wishlist`);
+            } else {
+                wishlist.push(product);
+                buttonElement.textContent = '❤️';
+                buttonElement.style.color = '#db8fa2';
+                showNotification(`${product.name} added to wishlist! 💖`);
+            }
+            
+            saveWishlist();
+            updateWishlistDisplay();
+        }
+        
+        function updateWishlistDisplay() {
+            const wishlistCount = document.getElementById('wishlistCount');
+            const wishlistItems = document.getElementById('wishlistItems');
+            
+            wishlistCount.textContent = wishlist.length;
+            wishlistItems.innerHTML = '';
+            
+            if (wishlist.length === 0) {
+                wishlistItems.innerHTML = '<p class="text-center text-gray-600">Your wishlist is empty</p>';
+                return;
+            }
+            
+            wishlist.forEach((item, index) => {
+                const wishlistItem = document.createElement('div');
+                wishlistItem.className = 'glass-effect rounded-2xl p-4 flex items-center justify-between';
+                wishlistItem.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-3xl mr-3">${item.emoji}</span>
+                        <div>
+                            <h4 class="font-semibold">${item.name}</h4>
+                            <p class="text-pink-500 font-bold">$${item.price}</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="quickAddToCart(${item.id})" class="text-green-500 hover:scale-110 transition-transform">🛍️</button>
+                        <button onclick="removeFromWishlist(${index})" class="text-red-500 hover:scale-110 transition-transform">🗑️</button>
+                    </div>
+                `;
+                wishlistItems.appendChild(wishlistItem);
+            });
+        }
+        
+        function removeFromWishlist(index) {
+            wishlist.splice(index, 1);
+            saveWishlist();
+            updateWishlistDisplay();
+        }
+        
+        function saveWishlist() {
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+        
+        function toggleWishlistSidebar() {
+            const sidebar = document.getElementById('wishlistSidebar');
+            sidebar.classList.toggle('translate-x-full');
+        }
+        
+        // Product modal
+        function openProductModal(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            const modal = document.getElementById('productModal');
+            
+            document.getElementById('productTitle').textContent = currentProduct.name;
+            document.getElementById('productDescription').textContent = currentProduct.description;
+            document.getElementById('productPrice').textContent = `$${currentProduct.price}`;
+            document.getElementById('productImage').innerHTML = `<span class="sparkle">${currentProduct.emoji}</span>`;
+            
+            // Load thumbnails
+            const thumbnails = document.getElementById('productThumbnails');
+            thumbnails.innerHTML = '';
+            currentProduct.images.forEach(image => {
+                const thumb = document.createElement('div');
+                thumb.className = 'h-16 bg-gradient-to-br from-pink-200 to-pink-400 rounded-2xl flex items-center justify-center text-2xl cursor-pointer hover:scale-105 transition-transform';
+                thumb.textContent = image;
+                thumbnails.appendChild(thumb);
+            });
+            
+            // Load color options
+            const colorOptions = document.getElementById('colorOptions');
+            colorOptions.innerHTML = '';
+            currentProduct.colors.forEach(color => {
+                const colorBtn = document.createElement('button');
+                colorBtn.className = 'w-8 h-8 rounded-full border-2 border-gray-300 hover:border-pink-400 transition-colors';
+                colorBtn.style.background = getColorCode(color);
+                colorBtn.onclick = () => selectColor(color, colorBtn);
+                colorOptions.appendChild(colorBtn);
+            });
+            
+            // Load size options
+            const sizeSelect = document.getElementById('sizeSelect');
+            sizeSelect.innerHTML = '';
+            currentProduct.sizes.forEach(size => {
+                const option = document.createElement('option');
+                option.value = size;
+                option.textContent = size;
+                sizeSelect.appendChild(option);
+            });
+            
+            currentQuantity = 1;
+            document.getElementById('quantityDisplay').textContent = currentQuantity;
+            
+            modal.classList.add('active');
+        }
+        
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('active');
+        }
+        
+        function getColorCode(colorName) {
+            const colorMap = {
+                'Rose': '#f43f5e',
+                'Dusty Pink': '#ec4899',
+                'Mauve': '#a855f7',
+                'Lavender': '#8b5cf6',
+                'Purple': '#7c3aed',
+                'Lilac': '#a78bfa',
+                'Gold': '#f59e0b',
+                'Champagne': '#fbbf24',
+                'Bronze': '#d97706',
+                'Ocean Blue': '#0ea5e9',
+                'Navy': '#1e40af',
+                'Teal': '#0d9488',
+                'Silver': '#6b7280',
+                'Rose Gold': '#f472b6'
+            };
+            return colorMap[colorName] || '#ec4899';
+        }
+        
+        function selectColor(color, element) {
+            document.querySelectorAll('#colorOptions button').forEach(btn => {
+                btn.classList.remove('border-pink-400');
+                btn.classList.add('border-gray-300');
+            });
+            element.classList.remove('border-gray-300');
+            element.classList.add('border-pink-400');
+        }
+        
+        function changeQuantity(change) {
+            currentQuantity = Math.max(1, currentQuantity + change);
+            document.getElementById('quantityDisplay').textContent = currentQuantity;
+        }
+        
+        function addToCartFromModal() {
+            const selectedColor = document.querySelector('#colorOptions button.border-pink-400');
+            const selectedSize = document.getElementById('sizeSelect').value;
+            const color = selectedColor ? currentProduct.colors[Array.from(selectedColor.parentNode.children).indexOf(selectedColor)] : currentProduct.colors[0];
+            
+            addToCart(currentProduct, currentQuantity, color, selectedSize);
+            closeProductModal();
+        }
+        
+        function addToWishlistFromModal() {
+            const existingIndex = wishlist.findIndex(item => item.id === currentProduct.id);
+            if (existingIndex === -1) {
+                wishlist.push(currentProduct);
+                saveWishlist();
+                updateWishlistDisplay();
+                showNotification(`${currentProduct.name} added to wishlist! 💖`);
+            } else {
+                showNotification(`${currentProduct.name} is already in your wishlist`);
+            }
+        }
+        
+        // Authentication
+        function openAuthModal() {
+            if (currentUser) {
+                // User is logged in, show logout option
+                if (confirm('Would you like to sign out?')) {
+                    logout();
+                }
+                return;
+            }
+            
+            document.getElementById('authModal').classList.add('active');
+        }
+        
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+        
+        function toggleAuthMode() {
+            isSignUp = !isSignUp;
+            const title = document.getElementById('authTitle');
+            const subtitle = document.getElementById('authSubtitle');
+            const submitBtn = document.getElementById('authSubmitBtn');
+            const toggle = document.getElementById('authToggle');
+            const nameFields = document.getElementById('nameFields');
+            
+            if (isSignUp) {
+                title.textContent = 'Create Account';
+                subtitle.textContent = 'Join our beautiful community';
+                submitBtn.textContent = 'Sign Up';
+                toggle.textContent = 'Already have an account? Sign in';
+                nameFields.classList.remove('hidden');
+            } else {
+                title.textContent = 'Welcome Back!';
+                subtitle.textContent = 'Sign in to your account';
+                submitBtn.textContent = 'Sign In';
+                toggle.textContent = "Don't have an account? Sign up";
+                nameFields.classList.add('hidden');
+            }
+        }
+        
+        document.getElementById('authForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const email = formData.get('email');
+            const password = formData.get('password');
+            
+            if (isSignUp) {
+                const firstName = formData.get('firstName');
+                const lastName = formData.get('lastName');
+                
+                // Simulate account creation
+                currentUser = {
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    joinDate: new Date().toISOString()
+                };
+                
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                showNotification(`Welcome to Tresses & Trinkets, ${firstName}! 🎉`);
+            } else {
+                // Simulate login
+                currentUser = {
+                    email: email,
+                    firstName: 'Beautiful',
+                    lastName: 'Customer',
+                    joinDate: '2023-01-01'
+                };
+                
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                showNotification(`Welcome back, ${currentUser.firstName}! 💕`);
+            }
+            
+            updateAuthButton();
+            showWelcomeMessage();
+            closeAuthModal();
+        });
+        
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateAuthButton();
+            hideWelcomeMessage();
+            showNotification('Signed out successfully. See you soon! 👋');
+        }
+        
+        function updateAuthButton() {
+            const authButton = document.getElementById('authButton');
+            if (currentUser) {
+                authButton.innerHTML = '<span class="text-2xl">👤</span>';
+                authButton.title = `Signed in as ${currentUser.firstName}`;
+            } else {
+                authButton.innerHTML = '<span class="text-2xl">👤</span>';
+                authButton.title = 'Sign in';
+            }
+        }
+        
+        function showWelcomeMessage() {
+            if (currentUser) {
+                const welcomeMessage = document.getElementById('welcomeMessage');
+                const userName = document.getElementById('userName');
+                userName.textContent = currentUser.firstName;
+                welcomeMessage.classList.remove('hidden');
+            }
+        }
+        
+        function hideWelcomeMessage() {
+            document.getElementById('welcomeMessage').classList.add('hidden');
+        }
+        
+        // Checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+            
+            if (!currentUser) {
+                showNotification('Please sign in to continue with checkout');
+                openAuthModal();
+                return;
+            }
+            
+            const modal = document.getElementById('checkoutModal');
+            const checkoutItems = document.getElementById('checkoutItems');
+            const checkoutSubtotal = document.getElementById('checkoutSubtotal');
+            const checkoutTotal = document.getElementById('checkoutTotal');
+            
+            let subtotal = 0;
+            checkoutItems.innerHTML = '';
+            
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const checkoutItem = document.createElement('div');
+                checkoutItem.className = 'flex justify-between items-center';
+                checkoutItem.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-xl mr-2">${item.emoji}</span>
+                        <div>
+                            <p class="font-semibold text-sm">${item.name}</p>
+                            <p class="text-xs text-gray-600">${item.color} • ${item.size} • Qty: ${item.quantity}</p>
+                        </div>
+                    </div>
+                    <span class="font-bold">$${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                checkoutItems.appendChild(checkoutItem);
+            });
+            
+            checkoutSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            checkoutTotal.textContent = `$${subtotal.toFixed(2)}`;
+            
+            modal.classList.add('active');
+            toggleCart(); // Close cart sidebar
+        }
+        
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+        
+        function processOrder() {
+            const form = document.getElementById('checkoutForm');
+            const formData = new FormData(form);
+            
+            // Validate form
+            const requiredFields = ['firstName', 'lastName', 'email', 'address', 'city', 'state', 'zip'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!formData.get(field)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                showNotification('Please fill in all required fields');
+                return;
+            }
+            
+            // Simulate order processing
+            const submitBtn = event.target;
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="loading"></div> Processing...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Clear cart
+                cart = [];
+                saveCart();
+                updateCartDisplay();
+                
+                // Show success
+                showNotification('Order placed successfully! 🎉 You will receive a confirmation email shortly.');
+                closeCheckoutModal();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Show order confirmation
+                setTimeout(() => {
+                    showNotification('Thank you for your order! Your beautiful accessories will be shipped within 2-3 business days. 📦✨');
+                }, 2000);
+            }, 2000);
+        }
+        
+        // Contact form
+        function handleContactForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Clear previous errors
+            form.querySelectorAll('.error-message').forEach(error => {
+                error.classList.add('hidden');
+                error.textContent = '';
+            });
+            
+            form.querySelectorAll('input, textarea').forEach(input => {
+                input.classList.remove('error-input', 'success-input');
+            });
+            
+            // Validate form
+            let isValid = true;
+            const requiredFields = ['firstName', 'lastName', 'email', 'message'];
+            
+            requiredFields.forEach(fieldName => {
+                const field = form.querySelector(`[name="${fieldName}"]`);
+                const value = formData.get(fieldName);
+                const errorElement = field.nextElementSibling;
+                
+                if (!value || value.trim() === '') {
+                    field.classList.add('error-input');
+                    errorElement.textContent = 'This field is required';
+                    errorElement.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    field.classList.add('success-input');
+                }
+            });
+            
+            // Validate email format
+            const email = formData.get('email');
+            const emailField = form.querySelector('[name="email"]');
+            const emailError = emailField.nextElementSibling;
+            
+            if (email && !isValidEmail(email)) {
+                emailField.classList.remove('success-input');
+                emailField.classList.add('error-input');
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.classList.remove('hidden');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                showNotification('Please fix the errors in the form');
+                return;
+            }
+            
+            // Simulate form submission
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="loading"></div> Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                showNotification('Message sent successfully! We\'ll get back to you within 24 hours. 💕');
+                form.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Reset field styles
+                form.querySelectorAll('input, textarea').forEach(input => {
+                    input.classList.remove('error-input', 'success-input');
+                });
+            }, 1500);
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-24 right-6 glass-effect rounded-2xl p-4 z-50 transform translate-x-full transition-transform max-w-sm';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 4000);
+        }
+        
+        // Chat functionality
+        function openChat() {
+            showNotification("Chat feature coming soon! 💕 Email us at hello@tressesandtrinkets.com or use the contact form!");
+        }
+        
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.slide-up');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9654b70892ba47b5',t:'MTc1MzU0MTQ4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
